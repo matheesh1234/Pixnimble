@@ -3,20 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixnimble | Fast & Secure Online Tool</title>
-    <meta name="description" content="Compress and optimize your images online with pixnimble. Fast, secure, and 100% client-side. Support for JPEG, PNG, WebP, and batch processing.">
-    <meta name="keywords" content="image compressor, jpeg optimizer, png to webp, batch image compression, reduce image size, compress images online">
-    <meta name="author" content="pixnimble">
-    <link rel="canonical" href="https://yourdomain.com/">
-
-     <!-- Cache Control -->
-  <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
-
-    <!-- Preconnect for faster resource fetching -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5782374845716287"      crossorigin="anonymous"></script>
-
+    <title>Pixnimble - Free Online Image Compressor | Reduce Image Size Fast</title>
+    <meta name="description" content="Compress JPG, PNG, WebP images online for free. Reduce image file size up to 80% without losing quality. Fast, secure, 100% client-side processing. No upload required.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -25,46 +18,47 @@
         }
 
         :root {
-            --bg-primary: #0f0f23;
-            --bg-secondary: #1a1a2e;
-            --bg-tertiary: #16213e;
-            --bg-card: #1e1e3f;
+            --bg-primary: #0a0b14;
+            --bg-secondary: #14151f;
+            --bg-tertiary: #1e1f2e;
+            --bg-card: #252637;
             --text-primary: #ffffff;
-            --text-secondary: #b8b8d1;
-            --text-tertiary: #7c7c9a;
-            --border-color: #2a2a4a;
+            --text-secondary: #e4e4f0;
+            --text-tertiary: #9999b8;
+            --border-color: #2d2e42;
             --accent: #6366f1;
-            --accent-hover: #4f46e5;
-            --accent-light: rgba(99, 102, 241, 0.1);
+            --accent-hover: #7c3aed;
+            --accent-light: rgba(99, 102, 241, 0.15);
+            --accent-glow: rgba(99, 102, 241, 0.5);
             --success: #10b981;
             --error: #ef4444;
             --warning: #f59e0b;
             --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+            --gradient-2: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.6);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.7);
+            --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.4);
         }
 
         [data-theme="light"] {
-            --bg-primary: #f8f9fa;
+            --bg-primary: #f8f9fc;
             --bg-secondary: #ffffff;
-            --bg-tertiary: #f1f3f5;
+            --bg-tertiary: #f1f3f7;
             --bg-card: #ffffff;
             --text-primary: #1a1a2e;
-            --text-secondary: #4a4a68;
+            --text-secondary: #3d3d5c;
             --text-tertiary: #6b6b8a;
-            --border-color: #e1e4e8;
-            --accent: #6366f1;
-            --accent-hover: #4f46e5;
-            --accent-light: rgba(99, 102, 241, 0.08);
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+            --border-color: #e1e4ea;
+            --accent-glow: rgba(99, 102, 241, 0.25);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+            --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.2);
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--bg-primary);
             color: var(--text-secondary);
             min-height: 100vh;
@@ -75,76 +69,71 @@
 
         .header {
             max-width: 1200px;
-            margin: 0 auto 32px;
+            margin: 0 auto 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
             gap: 20px;
-            padding: 24px;
+            padding: 32px 36px;
             background: var(--bg-secondary);
-            border-radius: 16px;
+            border-radius: 24px;
             box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-2);
         }
 
         .header-content h1 {
-            font-size: clamp(28px, 5vw, 38px);
-            font-weight: 700;
+            font-size: clamp(30px, 5vw, 48px);
+            font-weight: 900;
             background: var(--gradient-1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
+            letter-spacing: -1.5px;
         }
 
         .subtitle {
             color: var(--text-tertiary);
-            font-size: 15px;
+            font-size: clamp(14px, 2.5vw, 17px);
             font-weight: 500;
-        }
-
-        .header-controls {
-            display: flex;
-            gap: 12px;
-            align-items: center;
+            letter-spacing: -0.2px;
         }
 
         .theme-toggle {
             background: var(--bg-tertiary);
-            border: 1px solid var(--border-color);
-            padding: 10px 20px;
-            border-radius: 10px;
+            border: 2px solid var(--border-color);
+            padding: 14px 26px;
+            border-radius: 14px;
             cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 15px;
+            font-weight: 700;
             color: var(--text-secondary);
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            white-space: nowrap;
+            font-family: 'Inter', sans-serif;
         }
 
         .theme-toggle:hover {
-            background: var(--accent-light);
+            background: var(--accent);
             border-color: var(--accent);
-            color: var(--accent);
+            color: white;
             transform: translateY(-2px);
-        }
-
-        .ad-container {
-            max-width: 1200px;
-            margin: 0 auto 24px;
-            padding: 16px;
-            background: var(--bg-card);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            text-align: center;
-            min-height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-tertiary);
-            font-size: 13px;
+            box-shadow: var(--shadow-glow);
         }
 
         .container {
@@ -154,11 +143,11 @@
 
         .upload-area {
             border: 3px dashed var(--border-color);
-            border-radius: 20px;
-            padding: clamp(50px, 10vw, 80px) 30px;
+            border-radius: 24px;
+            padding: clamp(60px, 10vw, 100px) clamp(30px, 5vw, 50px);
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             background: var(--bg-secondary);
             position: relative;
             overflow: hidden;
@@ -170,7 +159,16 @@
             inset: 0;
             background: var(--gradient-1);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
+        }
+
+        .upload-area::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .upload-area:hover {
@@ -180,7 +178,15 @@
         }
 
         .upload-area:hover::before {
-            opacity: 0.05;
+            opacity: 0.08;
+        }
+
+        .upload-area:hover::after {
+            opacity: 1;
+        }
+
+        .upload-area:hover .upload-icon {
+            transform: scale(1.15) translateY(-8px);
         }
 
         .upload-area.dragover {
@@ -191,48 +197,69 @@
         }
 
         .upload-icon {
-            font-size: clamp(50px, 10vw, 64px);
-            margin-bottom: 20px;
-            filter: grayscale(0.3);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            font-size: clamp(64px, 10vw, 88px);
+            margin-bottom: 24px;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            color: var(--accent);
         }
 
         .upload-text {
-            font-size: clamp(16px, 3vw, 20px);
+            font-size: clamp(22px, 3.5vw, 28px);
             color: var(--text-primary);
-            font-weight: 600;
+            font-weight: 800;
             margin-bottom: 12px;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 1;
         }
 
         .upload-hint {
-            font-size: 14px;
+            font-size: clamp(14px, 2.5vw, 16px);
             color: var(--text-tertiary);
-            margin-bottom: 20px;
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .upload-features {
             display: flex;
             justify-content: center;
-            gap: 24px;
+            gap: 16px;
             flex-wrap: wrap;
-            margin-top: 24px;
+            margin-top: 28px;
+            position: relative;
+            z-index: 1;
         }
 
         .feature-tag {
             display: flex;
             align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            color: var(--text-tertiary);
+            gap: 8px;
+            font-size: clamp(13px, 2vw, 15px);
+            color: var(--text-secondary);
             background: var(--bg-tertiary);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-weight: 500;
+            padding: 12px 22px;
+            border-radius: 28px;
+            font-weight: 700;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .feature-tag:hover {
+            background: var(--accent-light);
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .feature-tag i {
+            font-size: 16px;
         }
 
         input[type="file"] {
@@ -240,186 +267,220 @@
         }
 
         .controls {
-            margin-top: 32px;
+            margin-top: 40px;
             display: none;
             background: var(--bg-secondary);
-            padding: 28px;
-            border-radius: 16px;
+            padding: 36px;
+            border-radius: 24px;
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-md);
         }
 
         .controls-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
         }
 
         .controls-title {
-            font-size: 18px;
-            font-weight: 700;
+            font-size: clamp(20px, 3vw, 26px);
+            font-weight: 900;
             color: var(--text-primary);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .controls-title i {
+            color: var(--accent);
         }
 
         .control-group {
-            margin-bottom: 24px;
+            margin-bottom: 32px;
         }
 
         label {
-            font-size: 14px;
+            font-size: clamp(15px, 2.5vw, 17px);
             color: var(--text-primary);
-            margin-bottom: 12px;
-            font-weight: 600;
+            margin-bottom: 14px;
+            font-weight: 700;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         .quality-value {
             background: var(--accent-light);
             color: var(--accent);
-            padding: 6px 16px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 700;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-size: clamp(14px, 2.5vw, 16px);
+            font-weight: 800;
+            border: 2px solid var(--accent);
         }
 
         input[type="range"] {
             width: 100%;
-            height: 8px;
+            height: 10px;
             background: var(--bg-tertiary);
-            border-radius: 4px;
+            border-radius: 6px;
             outline: none;
             -webkit-appearance: none;
             cursor: pointer;
+            position: relative;
         }
 
         input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 22px;
-            height: 22px;
+            width: 26px;
+            height: 26px;
             background: var(--accent);
             border-radius: 50%;
             cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 15px var(--accent-glow);
         }
 
         input[type="range"]::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.6);
+            transform: scale(1.3);
+            box-shadow: 0 5px 25px var(--accent-glow);
         }
 
         input[type="range"]::-moz-range-thumb {
-            width: 22px;
-            height: 22px;
+            width: 26px;
+            height: 26px;
             background: var(--accent);
             border-radius: 50%;
             cursor: pointer;
             border: none;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         .format-selector {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 12px;
-            margin-top: 8px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 14px;
         }
 
         .format-option {
-            padding: 12px;
+            padding: 18px 14px;
             border: 2px solid var(--border-color);
-            border-radius: 10px;
+            border-radius: 16px;
             cursor: pointer;
             text-align: center;
-            font-weight: 600;
-            font-size: 13px;
-            transition: all 0.2s ease;
+            font-weight: 700;
+            font-size: clamp(14px, 2.5vw, 16px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             background: var(--bg-tertiary);
             color: var(--text-secondary);
+            position: relative;
+        }
+
+        .format-option::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 14px;
+            background: var(--gradient-2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .format-option span {
+            position: relative;
+            z-index: 1;
         }
 
         .format-option:hover {
             border-color: var(--accent);
-            background: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
 
         .format-option.active {
             border-color: var(--accent);
-            background: var(--accent);
             color: white;
         }
 
+        .format-option.active::before {
+            opacity: 1;
+        }
+
         .resize-inputs {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 12px;
+            display: flex;
+            gap: 14px;
             align-items: center;
-            margin-top: 8px;
+            margin-top: 14px;
         }
 
         .resize-input {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
+            flex: 1;
         }
 
         .resize-input input {
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
+            padding: 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 14px;
             background: var(--bg-tertiary);
             color: var(--text-primary);
-            font-size: 14px;
+            font-size: clamp(15px, 2.5vw, 17px);
             font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
         }
 
         .resize-input input:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px var(--accent-light);
+            box-shadow: 0 0 0 4px var(--accent-light);
+            background: var(--bg-card);
         }
 
         .resize-lock {
             cursor: pointer;
-            font-size: 20px;
+            font-size: 26px;
             user-select: none;
-            transition: transform 0.2s ease;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            padding: 10px;
+            color: var(--text-secondary);
         }
 
         .resize-lock:hover {
             transform: scale(1.2);
+            color: var(--accent);
         }
 
         .images-container {
             display: none;
-            margin-top: 32px;
+            margin-top: 40px;
         }
 
         .image-card {
             background: var(--bg-secondary);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 24px;
-            animation: slideIn 0.4s ease;
+            border-radius: 24px;
+            padding: 28px;
+            margin-bottom: 28px;
             box-shadow: var(--shadow-md);
-            transition: transform 0.2s ease;
+            transition: all 0.3s ease;
+            animation: slideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .image-card:hover {
-            transform: translateY(-2px);
+            transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
         }
 
         @keyframes slideIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -431,57 +492,77 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 12px;
+            margin-bottom: 24px;
+            gap: 14px;
         }
 
         .image-name {
-            font-size: 16px;
+            font-size: clamp(16px, 2.5vw, 18px);
             font-weight: 700;
             color: var(--text-primary);
+            word-break: break-word;
+            flex: 1;
+            cursor: pointer;
+            transition: color 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+        }
+
+        .image-name:hover {
+            color: var(--accent);
+        }
+
+        .image-name i {
+            font-size: 20px;
+        }
+
+        .edit-hint {
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-left: 10px;
         }
 
         .remove-btn {
-            background: transparent;
-            border: 1px solid var(--border-color);
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
             color: var(--error);
             cursor: pointer;
-            font-size: 18px;
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            transition: all 0.2s;
+            font-size: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
 
         .remove-btn:hover {
             background: var(--error);
             color: white;
-            transform: rotate(90deg);
+            border-color: var(--error);
+            transform: rotate(90deg) scale(1.1);
         }
 
         .comparison-container {
             position: relative;
-            margin-bottom: 20px;
-            border-radius: 12px;
+            margin-bottom: 24px;
+            border-radius: 18px;
             overflow: hidden;
             background: var(--bg-tertiary);
-            user-select: none;
-            box-shadow: var(--shadow-sm);
+            box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.25);
         }
 
         .comparison-slider {
             position: relative;
             width: 100%;
-            min-height: 450px;
+            min-height: clamp(300px, 50vw, 520px);
             overflow: hidden;
             cursor: ew-resize;
+            touch-action: none;
         }
 
         .image-wrapper {
@@ -501,7 +582,7 @@
             max-height: 100%;
             object-fit: contain;
             pointer-events: none;
-            transition: transform 0.2s ease;
+            transition: transform 0.3s ease;
         }
 
         .compressed-wrapper {
@@ -512,68 +593,79 @@
             position: absolute;
             top: 0;
             left: 50%;
-            width: 4px;
+            width: 5px;
             height: 100%;
             background: var(--accent);
             cursor: ew-resize;
             transform: translateX(-50%);
             z-index: 10;
             pointer-events: none;
-            box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+            box-shadow: 0 0 25px var(--accent-glow);
         }
 
         .slider-handle::before {
-            content: '⬌';
+            content: '\F1E5';
+            font-family: 'bootstrap-icons';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             background: var(--accent);
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 20px;
             pointer-events: all;
-            box-shadow: var(--shadow-md);
-            border: 3px solid var(--bg-primary);
+            box-shadow: 0 5px 25px var(--accent-glow);
+            border: 4px solid var(--bg-primary);
+            transition: all 0.3s ease;
+        }
+
+        .slider-handle::before:hover {
+            transform: translate(-50%, -50%) scale(1.2);
         }
 
         .comparison-labels {
             display: flex;
             justify-content: space-between;
-            padding: 12px 16px;
+            padding: 16px 24px;
             background: var(--bg-card);
-            font-size: 12px;
+            font-size: clamp(12px, 2vw, 14px);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             color: var(--text-tertiary);
-            font-weight: 700;
+            font-weight: 800;
             border-top: 1px solid var(--border-color);
         }
 
         .zoom-controls {
             display: flex;
             justify-content: center;
-            gap: 8px;
-            padding: 12px;
+            gap: 10px;
+            padding: 16px;
             background: var(--bg-card);
             border-top: 1px solid var(--border-color);
+            flex-wrap: wrap;
         }
 
         .zoom-btn {
             background: var(--bg-tertiary);
-            border: 1px solid var(--border-color);
+            border: 2px solid var(--border-color);
             color: var(--text-secondary);
-            padding: 8px 16px;
-            border-radius: 8px;
+            padding: 12px 18px;
+            border-radius: 12px;
             cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.2s;
+            font-size: clamp(14px, 2.5vw, 15px);
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Inter', sans-serif;
         }
 
         .zoom-btn:hover {
@@ -581,53 +673,61 @@
             color: white;
             border-color: var(--accent);
             transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .zoom-btn i {
+            font-size: 16px;
         }
 
         .zoom-level {
             display: flex;
             align-items: center;
             color: var(--text-primary);
-            font-size: 13px;
-            font-weight: 700;
-            padding: 0 12px;
+            font-size: clamp(14px, 2.5vw, 15px);
+            font-weight: 800;
+            padding: 0 18px;
             background: var(--bg-tertiary);
-            border-radius: 8px;
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 16px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .stat-item {
             background: var(--bg-tertiary);
-            padding: 16px;
-            border-radius: 12px;
+            padding: 20px;
+            border-radius: 16px;
             text-align: center;
             border: 1px solid var(--border-color);
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         .stat-item:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow-sm);
+            border-color: var(--accent);
         }
 
         .stat-label {
-            font-size: 11px;
+            font-size: clamp(12px, 2vw, 13px);
             color: var(--text-tertiary);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            font-weight: 700;
+            letter-spacing: 1.2px;
+            margin-bottom: 10px;
+            font-weight: 800;
         }
 
         .stat-value {
-            font-size: 18px;
-            font-weight: 700;
+            font-size: clamp(18px, 3vw, 22px);
+            font-weight: 800;
             color: var(--text-primary);
+            word-break: break-word;
         }
 
         .stat-value.success {
@@ -639,27 +739,28 @@
         }
 
         .btn {
-            padding: 14px 24px;
+            padding: 18px 32px;
             border: none;
-            border-radius: 10px;
-            font-size: 15px;
-            font-weight: 700;
+            border-radius: 16px;
+            font-size: clamp(16px, 2.5vw, 18px);
+            font-weight: 800;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
             width: 100%;
             position: relative;
             overflow: hidden;
+            font-family: 'Inter', sans-serif;
         }
 
         .btn::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
             transform: translateX(-100%);
             transition: transform 0.6s;
         }
@@ -668,63 +769,66 @@
             transform: translateX(100%);
         }
 
+        .btn i {
+            font-size: 20px;
+        }
+
         .btn-primary {
-            background: var(--accent);
+            background: var(--gradient-2);
             color: white;
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 6px 25px var(--accent-glow);
+            border: 2px solid transparent;
         }
 
         .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px var(--accent-glow);
         }
 
         .btn-primary:active {
-            transform: translateY(0);
+            transform: translateY(-1px);
         }
 
         .btn-secondary {
             background: var(--bg-tertiary);
             color: var(--text-primary);
-            border: 1px solid var(--border-color);
+            border: 2px solid var(--border-color);
         }
 
         .btn-secondary:hover {
             background: var(--bg-card);
             border-color: var(--accent);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
 
         .action-buttons {
             display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .action-buttons .btn {
-            flex: 1;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 24px;
         }
 
         .loading {
             display: none;
             text-align: center;
-            padding: 32px;
+            padding: 40px;
             color: var(--text-tertiary);
             background: var(--bg-secondary);
-            border-radius: 16px;
-            margin-top: 24px;
+            border-radius: 24px;
+            margin-top: 40px;
             box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
         }
 
         .spinner {
-            border: 4px solid var(--border-color);
-            border-top: 4px solid var(--accent);
+            border: 6px solid var(--border-color);
+            border-top: 6px solid var(--accent);
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             animation: spin 0.8s linear infinite;
-            margin: 0 auto 16px;
+            margin: 0 auto 20px;
         }
 
         @keyframes spin {
@@ -734,128 +838,349 @@
 
         .global-actions {
             display: none;
-            margin-top: 32px;
-            padding: 24px;
+            margin-top: 40px;
+            padding: 32px;
             background: var(--bg-secondary);
-            border-radius: 16px;
+            border-radius: 24px;
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-md);
         }
 
         .badge {
             display: inline-block;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 11px;
-            font-weight: 700;
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: clamp(12px, 2vw, 13px);
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
         }
 
         .badge-success {
-            background: rgba(16, 185, 129, 0.1);
+            background: rgba(16, 185, 129, 0.2);
             color: var(--success);
+            border: 2px solid var(--success);
         }
 
         .progress-bar {
             width: 100%;
-            height: 6px;
+            height: 10px;
             background: var(--bg-tertiary);
-            border-radius: 3px;
+            border-radius: 6px;
             overflow: hidden;
-            margin-top: 12px;
+            margin-top: 20px;
         }
 
         .progress-fill {
             height: 100%;
-            background: var(--gradient-1);
+            background: var(--gradient-2);
             width: 0%;
             transition: width 0.3s ease;
+            box-shadow: 0 0 15px var(--accent-glow);
         }
 
-        @media (max-width: 768px) {
+        .editor-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.96);
+            z-index: 1000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .editor-container {
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 24px;
+            background: var(--bg-secondary);
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+        }
+
+        .editor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .editor-title {
+            font-size: clamp(20px, 3vw, 26px);
+            font-weight: 900;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .editor-title i {
+            color: var(--accent);
+        }
+
+        .editor-close {
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 28px;
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .editor-close:hover {
+            background: var(--error);
+            color: white;
+            border-color: var(--error);
+            transform: rotate(90deg);
+        }
+
+        .editor-content {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+        }
+
+        .editor-canvas-wrapper {
+            background: var(--bg-tertiary);
+            border-radius: 18px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 540px;
+            position: relative;
+            overflow: auto;
+        }
+
+        .editor-canvas {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s ease;
+            transform-origin: center center;
+        }
+
+        .editor-tools {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .tool-section {
+            background: var(--bg-tertiary);
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tool-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .tool-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .tool-btn {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 14px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tool-btn:hover, .tool-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .tool-btn i {
+            font-size: 16px;
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            padding: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-align: center;
+            color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .slider-control {
+            margin-bottom: 14px;
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        .editor-actions {
+            display: flex;
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .crop-overlay {
+            position: absolute;
+            border: 2px dashed var(--accent);
+            background: rgba(99, 102, 241, 0.15);
+            cursor: move;
+            display: none;
+        }
+
+        .crop-handle {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border: 2px solid white;
+            border-radius: 50%;
+        }
+
+        .crop-handle.nw { top: -7px; left: -7px; cursor: nw-resize; }
+        .crop-handle.ne { top: -7px; right: -7px; cursor: ne-resize; }
+        .crop-handle.sw { bottom: -7px; left: -7px; cursor: sw-resize; }
+        .crop-handle.se { bottom: -7px; right: -7px; cursor: se-resize; }
+
+        footer {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding: 28px;
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: clamp(13px, 2vw, 15px);
+        }
+
+        @media (min-width: 640px) {
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(4, 1fr);
             }
 
             .action-buttons {
-                flex-direction: column;
+                flex-direction: row;
             }
+        }
 
-            .header {
-                text-align: center;
-                justify-content: center;
-            }
-
-            .header-controls {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .resize-inputs {
+        @media (max-width: 1024px) {
+            .editor-content {
                 grid-template-columns: 1fr;
-            }
-
-            .resize-lock {
-                display: none;
-            }
-
-            .format-selector {
-                grid-template-columns: 1fr 1fr;
             }
         }
 
         @media (max-width: 480px) {
             body {
-                padding: 12px;
+                padding: 14px;
             }
 
-            .header, .controls, .image-card {
-                padding: 16px;
+            .header {
+                padding: 24px;
+                flex-direction: column;
+                text-align: center;
             }
 
-            .comparison-slider {
-                min-height: 300px;
+            .controls, .image-card, .global-actions {
+                padding: 24px;
+            }
+
+            .resize-lock {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">
+    <header class="header">
         <div class="header-content">
             <h1>PIXnimble</h1>
-            <p class="subtitle">Professional image optimization tool</p>
+            <p class="subtitle">Professional Image Compression Made Simple</p>
         </div>
-        <div class="header-controls">
-            <button class="theme-toggle" id="themeToggle">
-                <span id="themeIcon">🌙</span>
-                <span id="themeText">Dark</span>
-            </button>
-        </div>
-    </div>
-
-    <!-- Top Ad Space -->
-    <div class="ad-container" id="topAd">
-        <!-- Google AdSense code goes here -->
-        <div style="color: var(--text-tertiary);">Advertisement</div>
-    </div>
+        <button class="theme-toggle" id="themeToggle">
+            <i id="themeIcon" class="bi bi-moon-stars-fill"></i>
+            <span id="themeText">Dark</span>
+        </button>
+    </header>
 
     <div class="container">
         <div class="upload-area" id="uploadArea">
-            <div class="upload-icon">🖼️</div>
-            <div class="upload-text">Drop your images here or click to browse</div>
-            <div class="upload-hint">Fast, secure, and 100% client-side processing</div>
+            <div class="upload-icon">
+                <i class="bi bi-images"></i>
+            </div>
+            <div class="upload-text">Drop Images Here or Click to Browse</div>
+            <div class="upload-hint">Fast, secure, 100% client-side processing - Your images never leave your device</div>
             <div class="upload-features">
-                <div class="feature-tag">✓ Multiple formats</div>
-                <div class="feature-tag">✓ Batch processing</div>
-                <div class="feature-tag">✓ No upload needed</div>
+                <div class="feature-tag">
+                    <i class="bi bi-check-circle-fill"></i>
+                    Multiple Formats
+                </div>
+                <div class="feature-tag">
+                    <i class="bi bi-check-circle-fill"></i>
+                    Photo Editor
+                </div>
+                <div class="feature-tag">
+                    <i class="bi bi-check-circle-fill"></i>
+                    Privacy First
+                </div>
             </div>
             <input type="file" id="fileInput" accept="image/*" multiple>
         </div>
 
         <div class="loading" id="loading">
             <div class="spinner"></div>
-            <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Processing images...</div>
+            <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 10px;">Processing images...</div>
             <div>Please wait while we compress your images</div>
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill"></div>
@@ -864,12 +1189,15 @@
 
         <div class="controls" id="controls">
             <div class="controls-header">
-                <div class="controls-title">⚙️ Compression Settings</div>
+                <div class="controls-title">
+                    <i class="bi bi-sliders"></i>
+                    Compression Settings
+                </div>
             </div>
 
             <div class="control-group">
                 <label>
-                    Quality Level
+                    <span>Quality Level</span>
                     <span class="quality-value" id="qualityValue">80%</span>
                 </label>
                 <input type="range" id="qualitySlider" min="10" max="100" value="80">
@@ -878,37 +1206,34 @@
             <div class="control-group">
                 <label>Output Format</label>
                 <div class="format-selector">
-                    <div class="format-option active" data-format="jpeg">JPEG</div>
-                    <div class="format-option" data-format="png">PNG</div>
-                    <div class="format-option" data-format="webp">WebP</div>
+                    <div class="format-option active" data-format="jpeg"><span>JPEG</span></div>
+                    <div class="format-option" data-format="png"><span>PNG</span></div>
+                    <div class="format-option" data-format="webp"><span>WebP</span></div>
                 </div>
             </div>
 
             <div class="control-group">
                 <label>
-                    Resize Images (optional)
+                    <span>Resize Images (optional)</span>
                     <span class="badge badge-success" id="aspectRatioBadge" style="display: none;">16:9</span>
                 </label>
                 <div class="resize-inputs">
                     <div class="resize-input">
-                        <input type="number" id="widthInput" placeholder="Width (px)">
+                        <input type="number" id="widthInput" placeholder="Width (px)" aria-label="Image width">
                     </div>
-                    <div class="resize-lock" id="aspectLock" title="Lock aspect ratio">🔓</div>
+                    <div class="resize-lock" id="aspectLock" title="Lock aspect ratio">
+                        <i class="bi bi-unlock-fill"></i>
+                    </div>
                     <div class="resize-input">
-                        <input type="number" id="heightInput" placeholder="Height (px)">
+                        <input type="number" id="heightInput" placeholder="Height (px)" aria-label="Image height">
                     </div>
                 </div>
             </div>
 
             <button class="btn btn-primary" id="compressAllBtn">
-                <span>⚡</span> Compress All Images
+                <i class="bi bi-lightning-charge-fill"></i>
+                Compress All Images
             </button>
-        </div>
-
-        <!-- Middle Ad Space -->
-        <div class="ad-container" id="middleAd" style="display: none; margin-top: 32px;">
-            <!-- Google AdSense code goes here -->
-            <div style="color: var(--text-tertiary);">Advertisement</div>
         </div>
 
         <div class="images-container" id="imagesContainer"></div>
@@ -916,20 +1241,125 @@
         <div class="global-actions" id="globalActions">
             <div class="action-buttons">
                 <button class="btn btn-primary" id="downloadAllBtn">
-                    <span>📦</span> Download All as ZIP
+                    <i class="bi bi-cloud-download-fill"></i>
+                    Download All as ZIP
                 </button>
                 <button class="btn btn-secondary" id="resetBtn">
-                    <span>🔄</span> Start Over
+                    <i class="bi bi-arrow-clockwise"></i>
+                    Start Over
                 </button>
             </div>
         </div>
+    </div>
 
-        <!-- Bottom Ad Space -->
-        <div class="ad-container" id="bottomAd" style="display: none; margin-top: 32px;">
-            <!-- Google AdSense code goes here -->
-            <div style="color: var(--text-tertiary);">Advertisement</div>
+    <div class="editor-modal" id="editorModal">
+        <div class="editor-container">
+            <div class="editor-header">
+                <div class="editor-title">
+                    <i class="bi bi-pencil-square"></i>
+                    Photo Editor
+                </div>
+                <button class="editor-close" id="editorClose"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="editor-content">
+                <div class="editor-canvas-wrapper">
+                    <canvas id="editorCanvas" class="editor-canvas"></canvas>
+                    <div class="crop-overlay" id="cropOverlay">
+                        <div class="crop-handle nw"></div>
+                        <div class="crop-handle ne"></div>
+                        <div class="crop-handle sw"></div>
+                        <div class="crop-handle se"></div>
+                    </div>
+                </div>
+                <div class="editor-tools">
+                    <div class="tool-section">
+                        <div class="tool-title">Transform</div>
+                        <div class="tool-buttons">
+                            <button class="tool-btn" id="cropBtn">
+                                <i class="bi bi-crop"></i>
+                                Crop
+                            </button>
+                            <button class="tool-btn" id="rotateLeftBtn">
+                                <i class="bi bi-arrow-counterclockwise"></i>
+                                Rotate
+                            </button>
+                            <button class="tool-btn" id="rotateRightBtn">
+                                <i class="bi bi-arrow-clockwise"></i>
+                                Rotate
+                            </button>
+                            <button class="tool-btn" id="flipHBtn">
+                                <i class="bi bi-arrow-left-right"></i>
+                                Flip H
+                            </button>
+                            <button class="tool-btn" id="flipVBtn">
+                                <i class="bi bi-arrow-down-up"></i>
+                                Flip V
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="tool-section">
+                        <div class="tool-title">Adjustments</div>
+                        <div class="slider-control">
+                            <div class="slider-label">
+                                <span>Brightness</span>
+                                <span id="brightnessVal">100</span>
+                            </div>
+                            <input type="range" id="brightnessSlider" min="0" max="200" value="100">
+                        </div>
+                        <div class="slider-control">
+                            <div class="slider-label">
+                                <span>Contrast</span>
+                                <span id="contrastVal">100</span>
+                            </div>
+                            <input type="range" id="contrastSlider" min="0" max="200" value="100">
+                        </div>
+                        <div class="slider-control">
+                            <div class="slider-label">
+                                <span>Saturation</span>
+                                <span id="saturationVal">100</span>
+                            </div>
+                            <input type="range" id="saturationSlider" min="0" max="200" value="100">
+                        </div>
+                        <div class="slider-control">
+                            <div class="slider-label">
+                                <span>Blur</span>
+                                <span id="blurVal">0</span>
+                            </div>
+                            <input type="range" id="blurSlider" min="0" max="20" value="0">
+                        </div>
+                    </div>
+
+                    <div class="tool-section">
+                        <div class="tool-title">Filters</div>
+                        <div class="filter-grid">
+                            <button class="filter-btn" data-filter="none">Original</button>
+                            <button class="filter-btn" data-filter="grayscale">Grayscale</button>
+                            <button class="filter-btn" data-filter="sepia">Sepia</button>
+                            <button class="filter-btn" data-filter="invert">Invert</button>
+                            <button class="filter-btn" data-filter="vintage">Vintage</button>
+                            <button class="filter-btn" data-filter="cold">Cold</button>
+                        </div>
+                    </div>
+
+                    <div class="editor-actions">
+                        <button class="btn btn-secondary" id="resetEditorBtn" style="flex: 1;">
+                            <i class="bi bi-arrow-counterclockwise"></i>
+                            Reset
+                        </button>
+                        <button class="btn btn-primary" id="applyEditorBtn" style="flex: 2;">
+                            <i class="bi bi-check-lg"></i>
+                            Apply Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <footer>
+        <p>&copy; 2025 Pixnimble. Free Online Image Compressor. All rights reserved.</p>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script>
@@ -952,8 +1382,6 @@
         const heightInput = document.getElementById('heightInput');
         const aspectLock = document.getElementById('aspectLock');
         const aspectRatioBadge = document.getElementById('aspectRatioBadge');
-        const middleAd = document.getElementById('middleAd');
-        const bottomAd = document.getElementById('bottomAd');
 
         let images = [];
         let currentTheme = 'dark';
@@ -961,16 +1389,41 @@
         let aspectRatioLocked = false;
         let originalAspectRatio = 1;
         const zoomLevels = {};
+        const imageCache = new Map();
 
-        // Theme toggle
+        let editorCanvas, editorCtx;
+        let currentEditingId = null;
+        let originalImageData = null;
+        let editorState = {
+            brightness: 100,
+            contrast: 100,
+            saturation: 100,
+            blur: 0,
+            rotation: 0,
+            flipH: false,
+            flipV: false,
+            filter: 'none',
+            cropMode: false
+        };
+
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
         themeToggle.addEventListener('click', () => {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', currentTheme);
-            themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
-            themeText.textContent = currentTheme === 'dark' ? 'Dark' : 'Light';
+            updateThemeUI();
         });
 
-        // Format selector
+        function updateThemeUI() {
+            if (currentTheme === 'dark') {
+                themeIcon.className = 'bi bi-moon-stars-fill';
+                themeText.textContent = 'Dark';
+            } else {
+                themeIcon.className = 'bi bi-sun-fill';
+                themeText.textContent = 'Light';
+            }
+        }
+
         document.querySelectorAll('.format-option').forEach(option => {
             option.addEventListener('click', () => {
                 document.querySelectorAll('.format-option').forEach(o => o.classList.remove('active'));
@@ -979,10 +1432,9 @@
             });
         });
 
-        // Aspect ratio lock
         aspectLock.addEventListener('click', () => {
             aspectRatioLocked = !aspectRatioLocked;
-            aspectLock.textContent = aspectRatioLocked ? '🔒' : '🔓';
+            aspectLock.innerHTML = aspectRatioLocked ? '<i class="bi bi-lock-fill"></i>' : '<i class="bi bi-unlock-fill"></i>';
             
             if (aspectRatioLocked && widthInput.value && heightInput.value) {
                 originalAspectRatio = widthInput.value / heightInput.value;
@@ -1016,7 +1468,6 @@
             }
         }
 
-        // Upload area interactions
         uploadArea.addEventListener('click', () => fileInput.click());
 
         uploadArea.addEventListener('dragover', (e) => {
@@ -1056,7 +1507,6 @@
             uploadArea.style.display = 'none';
             controls.style.display = 'block';
             imagesContainer.style.display = 'block';
-            middleAd.style.display = 'block';
 
             validFiles.forEach(file => {
                 const id = Date.now() + Math.random();
@@ -1067,23 +1517,29 @@
         }
 
         async function loadImage(id, file) {
-            const reader = new FileReader();
-            reader.onload = async (e) => {
-                const img = new Image();
-                img.onload = () => {
-                    const imageObj = images.find(i => i.id === id);
-                    imageObj.original = { 
-                        img, 
-                        size: file.size, 
-                        name: file.name,
-                        width: img.width,
-                        height: img.height
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const imageObj = images.find(i => i.id === id);
+                        imageObj.original = { 
+                            img, 
+                            size: file.size, 
+                            name: file.name,
+                            width: img.width,
+                            height: img.height
+                        };
+                        
+                        requestAnimationFrame(() => {
+                            renderImageCard(id);
+                            resolve();
+                        });
                     };
-                    renderImageCard(id);
+                    img.src = e.target.result;
                 };
-                img.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
+                reader.readAsDataURL(file);
+            });
         }
 
         function renderImageCard(id) {
@@ -1103,18 +1559,22 @@
 
             card.innerHTML = `
                 <div class="image-header">
-                    <div class="image-name">
-                        📷 ${imageObj.original.name}
+                    <div class="image-name" data-edit-id="${id}">
+                        <i class="bi bi-file-image"></i>
+                        ${imageObj.original.name}
+                        <span class="edit-hint"><i class="bi bi-pencil"></i> Click to edit</span>
                     </div>
-                    <button class="remove-btn" data-id="${id}">×</button>
+                    <button class="remove-btn" data-id="${id}" aria-label="Remove image">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
                 </div>
                 <div class="comparison-container">
                     <div class="comparison-slider" data-id="${id}">
                         <div class="image-wrapper original-wrapper">
-                            <img src="${originalDataUrl}" alt="Original" class="original-img" id="original-${id}">
+                            <img src="${originalDataUrl}" alt="Original ${imageObj.original.name}" class="original-img" id="original-${id}" loading="lazy">
                         </div>
                         <div class="image-wrapper compressed-wrapper">
-                            <img src="${originalDataUrl}" alt="Compressed" class="compressed-img" id="compressed-${id}">
+                            <img src="${originalDataUrl}" alt="Compressed ${imageObj.original.name}" class="compressed-img" id="compressed-${id}" loading="lazy">
                         </div>
                         <div class="slider-handle"></div>
                     </div>
@@ -1123,15 +1583,21 @@
                         <span>Compressed</span>
                     </div>
                     <div class="zoom-controls">
-                        <button class="zoom-btn" data-zoom-out="${id}">🔍−</button>
+                        <button class="zoom-btn" data-zoom-out="${id}" aria-label="Zoom out">
+                            <i class="bi bi-zoom-out"></i>
+                        </button>
                         <span class="zoom-level" id="zoom-level-${id}">100%</span>
-                        <button class="zoom-btn" data-zoom-in="${id}">🔍+</button>
-                        <button class="zoom-btn" data-zoom-reset="${id}">Reset</button>
+                        <button class="zoom-btn" data-zoom-in="${id}" aria-label="Zoom in">
+                            <i class="bi bi-zoom-in"></i>
+                        </button>
+                        <button class="zoom-btn" data-zoom-reset="${id}" aria-label="Reset zoom">
+                            <i class="bi bi-arrow-repeat"></i> Reset
+                        </button>
                     </div>
                 </div>
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <div class="stat-label">Original Size</div>
+                        <div class="stat-label">Original</div>
                         <div class="stat-value">${formatBytes(imageObj.original.size)}</div>
                     </div>
                     <div class="stat-item">
@@ -1143,12 +1609,13 @@
                         <div class="stat-value success" id="savings-${id}">-</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-label">Dimensions</div>
-                        <div class="stat-value" id="dimensions-${id}">${imageObj.original.width}×${imageObj.original.height}</div>
+                        <div class="stat-label">Size</div>
+                        <div class="stat-value" id="dimensions-${id}">${imageObj.original.width}x${imageObj.original.height}</div>
                     </div>
                 </div>
-                <button class="btn btn-primary" data-download="${id}" style="margin-top: 12px;">
-                    <span>⬇️</span> Download
+                <button class="btn btn-primary" data-download="${id}">
+                    <i class="bi bi-download"></i>
+                    Download
                 </button>
             `;
 
@@ -1159,6 +1626,7 @@
             card.querySelector('[data-zoom-in]').addEventListener('click', () => zoomImage(id, 'in'));
             card.querySelector('[data-zoom-out]').addEventListener('click', () => zoomImage(id, 'out'));
             card.querySelector('[data-zoom-reset]').addEventListener('click', () => zoomImage(id, 'reset'));
+            card.querySelector('[data-edit-id]').addEventListener('click', () => openEditor(id));
             
             initSlider(id);
         }
@@ -1245,12 +1713,19 @@
             loading.style.display = 'none';
             progressFill.style.width = '0%';
             globalActions.style.display = 'block';
-            bottomAd.style.display = 'block';
         }
 
         async function compressImage(id) {
             const imageObj = images.find(i => i.id === id);
             if (!imageObj || !imageObj.original) return;
+
+            const cacheKey = `${id}_${qualitySlider.value}_${selectedFormat}_${widthInput.value}_${heightInput.value}`;
+            if (imageCache.has(cacheKey)) {
+                const cachedBlob = imageCache.get(cacheKey);
+                imageObj.compressed = { blob: cachedBlob, size: cachedBlob.size, format: selectedFormat };
+                updateCompressedDisplay(id);
+                return;
+            }
 
             const quality = qualitySlider.value / 100;
             const canvas = document.createElement('canvas');
@@ -1258,7 +1733,6 @@
             let width = imageObj.original.img.width;
             let height = imageObj.original.img.height;
 
-            // Apply resize if specified
             if (widthInput.value || heightInput.value) {
                 if (widthInput.value && heightInput.value) {
                     width = parseInt(widthInput.value);
@@ -1274,13 +1748,14 @@
 
             canvas.width = width;
             canvas.height = height;
-            const ctx = canvas.getContext('2d');
+            const ctx = canvas.getContext('2d', { alpha: selectedFormat === 'png' });
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = 'high';
             ctx.drawImage(imageObj.original.img, 0, 0, width, height);
 
-            // Update dimensions display
             const dimensionsEl = document.getElementById(`dimensions-${id}`);
             if (dimensionsEl) {
-                dimensionsEl.textContent = `${width}×${height}`;
+                dimensionsEl.textContent = `${width}x${height}`;
                 if (width !== imageObj.original.img.width || height !== imageObj.original.img.height) {
                     dimensionsEl.classList.add('warning');
                 }
@@ -1292,32 +1767,38 @@
                 
                 canvas.toBlob((blob) => {
                     imageObj.compressed = { blob, size: blob.size, format: selectedFormat };
-
-                    const compressedUrl = URL.createObjectURL(blob);
-                    const compressedImg = document.getElementById(`compressed-${id}`);
-                    if (compressedImg) {
-                        compressedImg.src = compressedUrl;
-                    }
-
-                    const compressedSizeEl = document.getElementById(`compressed-size-${id}`);
-                    const savingsEl = document.getElementById(`savings-${id}`);
-                    
-                    if (compressedSizeEl) {
-                        compressedSizeEl.textContent = formatBytes(blob.size);
-                    }
-                    
-                    if (savingsEl) {
-                        const savings = ((1 - blob.size / imageObj.original.size) * 100);
-                        savingsEl.textContent = savings > 0 ? savings.toFixed(1) + '%' : '0%';
-                        if (savings < 0) {
-                            savingsEl.classList.add('warning');
-                            savingsEl.classList.remove('success');
-                        }
-                    }
-                    
+                    imageCache.set(cacheKey, blob);
+                    updateCompressedDisplay(id);
                     resolve();
                 }, mimeType, quality);
             });
+        }
+
+        function updateCompressedDisplay(id) {
+            const imageObj = images.find(i => i.id === id);
+            if (!imageObj.compressed) return;
+
+            const compressedUrl = URL.createObjectURL(imageObj.compressed.blob);
+            const compressedImg = document.getElementById(`compressed-${id}`);
+            if (compressedImg) {
+                compressedImg.src = compressedUrl;
+            }
+
+            const compressedSizeEl = document.getElementById(`compressed-size-${id}`);
+            const savingsEl = document.getElementById(`savings-${id}`);
+            
+            if (compressedSizeEl) {
+                compressedSizeEl.textContent = formatBytes(imageObj.compressed.blob.size);
+            }
+            
+            if (savingsEl) {
+                const savings = ((1 - imageObj.compressed.blob.size / imageObj.original.size) * 100);
+                savingsEl.textContent = savings > 0 ? savings.toFixed(1) + '%' : '0%';
+                if (savings < 0) {
+                    savingsEl.classList.add('warning');
+                    savingsEl.classList.remove('success');
+                }
+            }
         }
 
         function removeImage(id) {
@@ -1382,12 +1863,11 @@
         function reset() {
             images = [];
             Object.keys(zoomLevels).forEach(key => delete zoomLevels[key]);
+            imageCache.clear();
             imagesContainer.innerHTML = '';
             imagesContainer.style.display = 'none';
             controls.style.display = 'none';
             globalActions.style.display = 'none';
-            middleAd.style.display = 'none';
-            bottomAd.style.display = 'none';
             uploadArea.style.display = 'block';
             fileInput.value = '';
             widthInput.value = '';
@@ -1405,38 +1885,316 @@
             return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
         }
 
-    </script>
+        function openEditor(id) {
+            currentEditingId = id;
+            const imageObj = images.find(i => i.id === id);
+            if (!imageObj || !imageObj.original) return;
 
-        <!-- External Scripts (deferred for faster load) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
-    <script defer>
-        // keep your JS as-is, just lazy load images
-        document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll("img").forEach(img => {
-            img.setAttribute("loading", "lazy");
-            if (!img.hasAttribute("alt")) img.setAttribute("alt", "Image compression preview");
-        });
-        });
-    </script>
+            const modal = document.getElementById('editorModal');
+            editorCanvas = document.getElementById('editorCanvas');
+            editorCtx = editorCanvas.getContext('2d');
 
-    <!-- Structured Data (SEO Boost) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "pixnimble",
-        "url": "https://yourdomain.com/",
-        "applicationCategory": "MultimediaApplication",
-        "operatingSystem": "All",
-        "description": "Compress images online quickly & securely. Supports JPEG, PNG, and WebP.",
-        "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+            editorState = {
+                brightness: 100,
+                contrast: 100,
+                saturation: 100,
+                blur: 0,
+                rotation: 0,
+                flipH: false,
+                flipV: false,
+                filter: 'none',
+                cropMode: false
+            };
+
+            const img = imageObj.original.img;
+            editorCanvas.width = img.width;
+            editorCanvas.height = img.height;
+            editorCtx.drawImage(img, 0, 0);
+            
+            originalImageData = editorCtx.getImageData(0, 0, img.width, img.height);
+
+            document.getElementById('brightnessSlider').value = 100;
+            document.getElementById('contrastSlider').value = 100;
+            document.getElementById('saturationSlider').value = 100;
+            document.getElementById('blurSlider').value = 0;
+            document.getElementById('brightnessVal').textContent = 100;
+            document.getElementById('contrastVal').textContent = 100;
+            document.getElementById('saturationVal').textContent = 100;
+            document.getElementById('blurVal').textContent = 0;
+
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
-    }
+
+        function closeEditor() {
+            document.getElementById('editorModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            document.getElementById('cropOverlay').style.display = 'none';
+            editorState.cropMode = false;
+            document.getElementById('cropBtn').classList.remove('active');
+        }
+
+        function applyEdits() {
+            const imageObj = images.find(i => i.id === currentEditingId);
+            
+            editorCanvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                const img = new Image();
+                img.onload = () => {
+                    imageObj.original.img = img;
+                    imageObj.original.width = img.width;
+                    imageObj.original.height = img.height;
+                    
+                    const originalImg = document.getElementById(`original-${currentEditingId}`);
+                    const compressedImg = document.getElementById(`compressed-${currentEditingId}`);
+                    if (originalImg) originalImg.src = url;
+                    if (compressedImg) compressedImg.src = url;
+                    
+                    closeEditor();
+                };
+                img.src = url;
+            });
+        }
+
+        function resetEditor() {
+            if (!originalImageData) return;
+            
+            editorCanvas.width = originalImageData.width;
+            editorCanvas.height = originalImageData.height;
+            editorCtx.putImageData(originalImageData, 0, 0);
+            
+            editorState = {
+                brightness: 100,
+                contrast: 100,
+                saturation: 100,
+                blur: 0,
+                rotation: 0,
+                flipH: false,
+                flipV: false,
+                filter: 'none',
+                cropMode: false
+            };
+            
+            document.getElementById('brightnessSlider').value = 100;
+            document.getElementById('contrastSlider').value = 100;
+            document.getElementById('saturationSlider').value = 100;
+            document.getElementById('blurSlider').value = 0;
+            document.getElementById('brightnessVal').textContent = 100;
+            document.getElementById('contrastVal').textContent = 100;
+            document.getElementById('saturationVal').textContent = 100;
+            document.getElementById('blurVal').textContent = 0;
+            document.getElementById('cropOverlay').style.display = 'none';
+            document.getElementById('cropBtn').classList.remove('active');
+        }
+
+        function applyFilters() {
+            if (!originalImageData) return;
+            
+            editorCtx.putImageData(originalImageData, 0, 0);
+            
+            if (editorState.rotation !== 0 || editorState.flipH || editorState.flipV) {
+                const tempCanvas = document.createElement('canvas');
+                tempCanvas.width = editorCanvas.width;
+                tempCanvas.height = editorCanvas.height;
+                const tempCtx = tempCanvas.getContext('2d');
+                tempCtx.drawImage(editorCanvas, 0, 0);
+                
+                if (editorState.rotation !== 0) {
+                    const angle = editorState.rotation * Math.PI / 180;
+                    const cos = Math.abs(Math.cos(angle));
+                    const sin = Math.abs(Math.sin(angle));
+                    const newWidth = Math.round(editorCanvas.width * cos + editorCanvas.height * sin);
+                    const newHeight = Math.round(editorCanvas.width * sin + editorCanvas.height * cos);
+                    
+                    editorCanvas.width = newWidth;
+                    editorCanvas.height = newHeight;
+                    editorCtx.translate(newWidth / 2, newHeight / 2);
+                    editorCtx.rotate(angle);
+                    editorCtx.drawImage(tempCanvas, -tempCanvas.width / 2, -tempCanvas.height / 2);
+                    editorCtx.setTransform(1, 0, 0, 1, 0, 0);
+                } else {
+                    editorCtx.save();
+                    editorCtx.translate(editorCanvas.width / 2, editorCanvas.height / 2);
+                    editorCtx.scale(editorState.flipH ? -1 : 1, editorState.flipV ? -1 : 1);
+                    editorCtx.drawImage(tempCanvas, -editorCanvas.width / 2, -editorCanvas.height / 2);
+                    editorCtx.restore();
+                }
+            }
+            
+            let filterStr = '';
+            filterStr += `brightness(${editorState.brightness}%) `;
+            filterStr += `contrast(${editorState.contrast}%) `;
+            filterStr += `saturate(${editorState.saturation}%) `;
+            if (editorState.blur > 0) {
+                filterStr += `blur(${editorState.blur}px) `;
+            }
+            
+            switch(editorState.filter) {
+                case 'grayscale':
+                    filterStr += 'grayscale(100%) ';
+                    break;
+                case 'sepia':
+                    filterStr += 'sepia(100%) ';
+                    break;
+                case 'invert':
+                    filterStr += 'invert(100%) ';
+                    break;
+                case 'vintage':
+                    filterStr += 'sepia(50%) contrast(110%) brightness(110%) ';
+                    break;
+                case 'cold':
+                    filterStr += 'brightness(110%) contrast(90%) saturate(130%) hue-rotate(180deg) ';
+                    break;
+            }
+            
+            if (filterStr) {
+                const tempCanvas = document.createElement('canvas');
+                tempCanvas.width = editorCanvas.width;
+                tempCanvas.height = editorCanvas.height;
+                const tempCtx = tempCanvas.getContext('2d');
+                tempCtx.filter = filterStr;
+                tempCtx.drawImage(editorCanvas, 0, 0);
+                editorCtx.clearRect(0, 0, editorCanvas.width, editorCanvas.height);
+                editorCtx.drawImage(tempCanvas, 0, 0);
+            }
+        }
+
+        function rotateImage(direction) {
+            editorState.rotation = (editorState.rotation + (direction === 'left' ? -90 : 90)) % 360;
+            applyFilters();
+        }
+
+        function flipImage(axis) {
+            if (axis === 'h') {
+                editorState.flipH = !editorState.flipH;
+            } else {
+                editorState.flipV = !editorState.flipV;
+            }
+            applyFilters();
+        }
+
+        function enableCropMode() {
+            editorState.cropMode = !editorState.cropMode;
+            const cropOverlay = document.getElementById('cropOverlay');
+            const cropBtn = document.getElementById('cropBtn');
+            
+            if (editorState.cropMode) {
+                cropOverlay.style.display = 'block';
+                cropBtn.classList.add('active');
+                const rect = editorCanvas.getBoundingClientRect();
+                const width = rect.width * 0.8;
+                const height = rect.height * 0.8;
+                cropOverlay.style.left = rect.left + (rect.width - width) / 2 + 'px';
+                cropOverlay.style.top = rect.top + (rect.height - height) / 2 + 'px';
+                cropOverlay.style.width = width + 'px';
+                cropOverlay.style.height = height + 'px';
+            } else {
+                cropOverlay.style.display = 'none';
+                cropBtn.classList.remove('active');
+            }
+        }
+
+        function applyCrop() {
+            if (!editorState.cropMode) return;
+            
+            const cropOverlay = document.getElementById('cropOverlay');
+            const canvasRect = editorCanvas.getBoundingClientRect();
+            const overlayRect = cropOverlay.getBoundingClientRect();
+            
+            const scaleX = editorCanvas.width / canvasRect.width;
+            const scaleY = editorCanvas.height / canvasRect.height;
+            
+            const x = (overlayRect.left - canvasRect.left) * scaleX;
+            const y = (overlayRect.top - canvasRect.top) * scaleY;
+            const width = overlayRect.width * scaleX;
+            const height = overlayRect.height * scaleY;
+            
+            const imageData = editorCtx.getImageData(x, y, width, height);
+            editorCanvas.width = width;
+            editorCanvas.height = height;
+            editorCtx.putImageData(imageData, 0, 0);
+            
+            originalImageData = editorCtx.getImageData(0, 0, width, height);
+            editorState.cropMode = false;
+            cropOverlay.style.display = 'none';
+            document.getElementById('cropBtn').classList.remove('active');
+        }
+
+        document.getElementById('editorClose').addEventListener('click', closeEditor);
+        document.getElementById('applyEditorBtn').addEventListener('click', () => {
+            if (editorState.cropMode) {
+                applyCrop();
+            }
+            applyEdits();
+        });
+        document.getElementById('resetEditorBtn').addEventListener('click', resetEditor);
+
+        document.getElementById('cropBtn').addEventListener('click', enableCropMode);
+        document.getElementById('rotateLeftBtn').addEventListener('click', () => rotateImage('left'));
+        document.getElementById('rotateRightBtn').addEventListener('click', () => rotateImage('right'));
+        document.getElementById('flipHBtn').addEventListener('click', () => flipImage('h'));
+        document.getElementById('flipVBtn').addEventListener('click', () => flipImage('v'));
+
+        document.getElementById('brightnessSlider').addEventListener('input', (e) => {
+            editorState.brightness = e.target.value;
+            document.getElementById('brightnessVal').textContent = e.target.value;
+            applyFilters();
+        });
+
+        document.getElementById('contrastSlider').addEventListener('input', (e) => {
+            editorState.contrast = e.target.value;
+            document.getElementById('contrastVal').textContent = e.target.value;
+            applyFilters();
+        });
+
+        document.getElementById('saturationSlider').addEventListener('input', (e) => {
+            editorState.saturation = e.target.value;
+            document.getElementById('saturationVal').textContent = e.target.value;
+            applyFilters();
+        });
+
+        document.getElementById('blurSlider').addEventListener('input', (e) => {
+            editorState.blur = e.target.value;
+            document.getElementById('blurVal').textContent = e.target.value;
+            applyFilters();
+        });
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                editorState.filter = btn.dataset.filter;
+                applyFilters();
+            });
+        });
+
+        let isDraggingCrop = false;
+        let cropStartX, cropStartY;
+
+        document.getElementById('cropOverlay').addEventListener('mousedown', (e) => {
+            if (e.target.classList.contains('crop-handle')) return;
+            isDraggingCrop = true;
+            const rect = e.target.getBoundingClientRect();
+            cropStartX = e.clientX - rect.left;
+            cropStartY = e.clientY - rect.top;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDraggingCrop) return;
+            const cropOverlay = document.getElementById('cropOverlay');
+            const canvasRect = editorCanvas.getBoundingClientRect();
+            
+            let newLeft = e.clientX - cropStartX;
+            let newTop = e.clientY - cropStartY;
+            
+            newLeft = Math.max(canvasRect.left, Math.min(newLeft, canvasRect.right - cropOverlay.offsetWidth));
+            newTop = Math.max(canvasRect.top, Math.min(newTop, canvasRect.bottom - cropOverlay.offsetHeight));
+            
+            cropOverlay.style.left = newLeft + 'px';
+            cropOverlay.style.top = newTop + 'px';
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDraggingCrop = false;
+        });
     </script>
 </body>
-
 </html>
-

@@ -3,945 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixnimble - Free Online Image Compressor & Converter | JPEG, PNG, WebP</title>
-    <meta name="description" content="Pixnimble is the fastest, 100% private, and free online image compressor. Compress JPEG, PNG, and WebP images instantly in your browser without uploads.">
-
-    <meta property="og:title" content="Pixnimble - Free Online Image Compressor & Converter">
-    <meta property="og:description" content="Compress images instantly and privately with professional quality. No uploads, no limits, no cost.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pixnimble.netlify.app/">
-    <meta name="google-site-verification" content="4xdB9sX7zrf1GonVQZodv7i3iQwO03fIZr_p3TQALUE" />
-    
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" as="style">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
-    </noscript>
-
-    <link rel="canonical" href="https://pixnimble.netlify.app/">
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5782374845716287"
-     crossorigin="anonymous"></script>
-    
-    
+    <title>Pixnimble - Compress Images Instantly, 100% Free</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* All original CSS remains here */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-dark: #0a0b14;
+            --bg-card: #14151f;
+            --text-white: #ffffff;
+            --text-gray: #9999b8;
+            --accent: #6366f1;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
         }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-dark); color: var(--text-white); overflow-x: hidden; }
+        .nav { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 100; padding: 16px 24px; background: rgba(20, 21, 31, 0.95); backdrop-filter: blur(20px); border-radius: 100px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); max-width: 1100px; width: calc(100% - 40px); }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 40px; }
+        .logo-container { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+        .logo-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+        .logo-icon img { max-width: 100%; max-height: 100%; display: block; }
+        .logo { font-size: 24px; font-weight: 900; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
+        .nav-links { display: flex; gap: 8px; }
+        .nav-link { padding: 10px 20px; color: var(--text-gray); text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 50px; transition: all 0.3s; }
+        .nav-link:hover { color: var(--text-white); background: rgba(255, 255, 255, 0.05); }
+        .nav-btn { padding: 12px 28px; background: var(--gradient-2); border: none; border-radius: 50px; color: white; font-weight: 700; cursor: pointer; font-size: 15px; transition: all 0.3s; font-family: 'Inter', sans-serif; box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3); }
+        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5); }
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 100px 20px 60px; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 800px; height: 800px; background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%); animation: float 20s ease-in-out infinite; }
+        .hero::after { content: ''; position: absolute; bottom: -30%; left: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%); animation: float 15s ease-in-out infinite reverse; }
+        @keyframes float { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(50px, 50px) rotate(180deg); } }
+        .hero-content { max-width: 1200px; text-align: center; position: relative; z-index: 2; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 30px; }
+        .hero-title { font-size: clamp(40px, 8vw, 76px); font-weight: 900; line-height: 1.1; margin-bottom: 30px; letter-spacing: -2px; }
+        .gradient-text { background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-subtitle { font-size: clamp(18px, 3vw, 24px); color: var(--text-gray); margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+        .cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { padding: 18px 40px; background: var(--gradient-2); border: none; border-radius: 14px; color: white; font-weight: 800; font-size: 18px; cursor: pointer; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; font-family: 'Inter', sans-serif; box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 50px rgba(99, 102, 241, 0.5); }
+        .btn-secondary { padding: 18px 40px; background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(255, 255, 255, 0.1); border-radius: 14px; color: white; font-weight: 800; font-size: 18px; cursor: pointer; transition: all 0.3s; font-family: 'Inter', sans-serif; }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--accent); transform: translateY(-3px); }
+        .features { padding: 100px 20px; }
+        .section-title { text-align: center; font-size: clamp(36px, 6vw, 54px); font-weight: 900; margin-bottom: 20px; letter-spacing: -1px; }
+        .section-subtitle { text-align: center; font-size: 20px; color: var(--text-gray); margin-bottom: 80px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .features-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .feature-card { background: var(--bg-card); padding: 40px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s; position: relative; overflow: hidden; }
+        .feature-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gradient-2); transform: scaleX(0); transition: transform 0.4s; }
+        .feature-card:hover { transform: translateY(-8px); border-color: rgba(99, 102, 241, 0.3); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+        .feature-card:hover::before { transform: scaleX(1); }
+        .feature-icon { width: 70px; height: 70px; background: var(--gradient-2); border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 32px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3); }
+        .feature-title { font-size: 24px; font-weight: 800; margin-bottom: 12px; }
+        .feature-desc { color: var(--text-gray); line-height: 1.7; font-size: 16px; }
+        .stats { padding: 100px 20px; text-align: center; }
+        .stats-grid { max-width: 1000px; margin: 60px auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .stat-number { font-size: clamp(48px, 8vw, 72px); font-weight: 900; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 10px; }
+        .stat-label { font-size: 18px; color: var(--text-gray); font-weight: 600; }
+        .how-it-works { padding: 100px 20px; background: var(--bg-card); }
+        .steps-container { max-width: 1000px; margin: 60px auto 0; display: grid; gap: 40px; }
+        .step { display: flex; gap: 30px; align-items: start; }
+        .step-number { flex-shrink: 0; width: 60px; height: 60px; background: var(--gradient-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 900; box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3); }
+        .step-content h3 { font-size: 26px; font-weight: 800; margin-bottom: 10px; }
+        .step-content p { color: var(--text-gray); font-size: 17px; line-height: 1.7; }
+        .about-section { padding: 100px 20px; }
+        .about-content { max-width: 1200px; margin: 0 auto; }
+        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 80px; }
+        .about-card { background: var(--bg-card); padding: 40px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s; text-align: center; }
+        .about-card:hover { transform: translateY(-8px); border-color: rgba(99, 102, 241, 0.3); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+        .about-icon { width: 70px; height: 70px; background: var(--gradient-2); border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 32px; margin: 0 auto 24px; box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3); }
+        .about-card h3 { font-size: 24px; font-weight: 800; margin-bottom: 16px; }
+        .about-card p { color: var(--text-gray); line-height: 1.7; font-size: 16px; }
+        .creator-section { background: var(--bg-card); padding: 60px 40px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.05); text-align: center; position: relative; overflow: hidden; }
+        .creator-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gradient-1); }
+        .creator-badge { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 24px; }
+        .creator-title { font-size: 32px; font-weight: 900; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 20px; }
+        .creator-description { color: var(--text-gray); font-size: 18px; line-height: 1.7; max-width: 700px; margin: 0 auto; }
+        .cta-section { padding: 120px 20px; text-align: center; position: relative; overflow: hidden; }
+        .cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%); animation: pulse 4s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { transform: translate(-50%, -50%) scale(1); } 50% { transform: translate(-50%, -50%) scale(1.1); } }
+        .cta-content { position: relative; z-index: 2; }
+        .cta-title { font-size: clamp(36px, 6vw, 56px); font-weight: 900; margin-bottom: 30px; letter-spacing: -1px; }
+        .cta-text { font-size: 22px; color: var(--text-gray); margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        footer { padding: 40px 20px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); color: var(--text-gray); }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #0a0a0f;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-        
-        a {
-            color: #2196F3;
-            text-decoration: underline;
-            transition: color 0.3s ease;
-        }
-        
-        a:hover {
-            color: #64B5F6;
-        }
-        
-        strong, b {
-            font-weight: 700;
-            color: #ffffff;
-        }
-
-        /* Ad container styling to ensure centering and margin */
-        .ad-container {
-            text-align: center;
-            /* Non-disturbing margins */
-            margin: 40px auto; 
-            max-width: 900px;
-            padding: 0 10px;
-            /* Visual indication for testing - REMOVE THIS BACKGROUND IN PRODUCTION */
-            min-height: 90px; 
-            background: rgba(255, 255, 255, 0.05); 
-            border: 1px dashed rgba(255, 255, 255, 0.2); 
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-            font-size: 14px;
-            opacity: 0.8;
-            border-radius: 8px;
-        }
-        .ad-container:empty {
-            min-height: 0; /* Ensures the container collapses if ad code is not inserted */
-            margin: 0;
-            border: none;
-            background: transparent;
-        }
-        
-        /* --- (Rest of the CSS is unchanged and omitted for brevity) --- */
-        
-        .grain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            opacity: 0.05;
-            z-index: 100;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-
-        .gradient-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.2) 0%, transparent 50%);
-            animation: gradientShift 15s ease infinite;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
-            50% { opacity: 0.8; transform: scale(1.1) rotate(5deg); }
-        }
-
-        .floating-shapes {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.4;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .shape-1 {
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .shape-2 {
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            bottom: 10%;
-            right: 10%;
-            animation-delay: 7s;
-        }
-
-        .shape-3 {
-            width: 250px;
-            height: 250px;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            top: 60%;
-            left: 50%;
-            animation-delay: 14s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(50px, -50px) scale(1.1); }
-            66% { transform: translate(-50px, 50px) scale(0.9); }
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-            z-index: 1;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 32px 0;
-            animation: fadeInDown 0.8s ease;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .logo {
-            font-size: 32px;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            letter-spacing: -0.5px;
-            text-decoration: none; /* Keep the entire logo link clean */
-        }
-
-        .logo-icon {
-            font-size: 36px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .logo-text {
-            background: linear-gradient(135deg, #fff 0%, #c7d2fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            /* UI FIX: Added blue underline to the logo text */
-            text-decoration: underline;
-            text-decoration-color: #667eea; /* A nice blue/purple gradient color from your theme */
-            text-underline-offset: 4px;
-        }
-
-        .nav-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
-            position: relative;
-            overflow: hidden;
-            border: none;
-            cursor: pointer;
-        }
-
-        .nav-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .nav-btn:hover::before {
-            left: 100%;
-        }
-
-        .nav-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.6);
-        }
-
-        .hero {
-            text-align: center;
-            padding: 100px 0 80px;
-            animation: fadeInUp 1s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255,255,255,0.1);
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 32px;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.2);
-            animation: slideInDown 1s ease 0.2s both;
-        }
-
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .badge::before {
-            content: '✨';
-            animation: sparkle 2s ease-in-out infinite;
-        }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
-            50% { opacity: 0.7; transform: scale(1.2) rotate(180deg); }
-        }
-
-        .hero h1 {
-            font-size: clamp(48px, 8vw, 84px);
-            font-weight: 900;
-            margin-bottom: 28px;
-            line-height: 1.1;
-            background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 50%, #a78bfa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -2px;
-            animation: slideInUp 1s ease 0.3s both;
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-subtitle {
-            font-size: clamp(20px, 3vw, 28px);
-            margin-bottom: 20px;
-            font-weight: 600;
-            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: slideInUp 1s ease 0.4s both;
-        }
-
-        .hero-description {
-            font-size: clamp(16px, 2.5vw, 20px);
-            margin-bottom: 48px;
-            opacity: 0.8;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-            font-weight: 400;
-            animation: slideInUp 1s ease 0.5s both;
-        }
-
-        .hero-cta {
-            margin-bottom: 24px;
-            animation: slideInUp 1s ease 0.6s both;
-        }
-
-        .cta-btn {
-            /* Kept the button styling as it is a CTA, not a standard text link */
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 18px 48px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .cta-btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.7);
-        }
-
-        .hero-note {
-            font-size: 14px;
-            opacity: 0.6;
-            margin-top: 20px;
-            font-weight: 400;
-            animation: fadeIn 1s ease 0.8s both;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 0.6; }
-        }
-
-        .mockup {
-            background: rgba(255,255,255,0.05);
-            border-radius: 24px;
-            padding: 12px;
-            margin: 80px auto;
-            max-width: 1000px;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 30px 90px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.1);
-            animation: scaleIn 1s ease 0.8s both;
-            transition: transform 0.4s ease;
-        }
-
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .mockup:hover {
-            transform: translateY(-8px);
-        }
-
-        .mockup-inner {
-            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
-            border-radius: 16px;
-            padding: 60px 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .mockup-inner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        .mockup-icon {
-            font-size: 80px;
-            margin-bottom: 24px;
-            display: block;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        .features {
-            padding: 120px 0;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: clamp(36px, 6vw, 56px);
-            font-weight: 800;
-            margin-bottom: 80px;
-            background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -1px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            margin-bottom: 80px;
-        }
-
-        .feature-card {
-            background: rgba(255,255,255,0.05);
-            padding: 40px;
-            border-radius: 20px;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, transparent 100%);
+        /* Scroll Animation Styles */
+        .scroll-animate {
             opacity: 0;
-            transition: opacity 0.4s;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .feature-card:hover::before {
+        .scroll-animate.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-fade {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .scroll-fade.animate-in {
             opacity: 1;
         }
 
-        .feature-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
-            border-color: rgba(99, 102, 241, 0.5);
+        .scroll-slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .feature-icon {
-            font-size: 56px;
-            margin-bottom: 24px;
-            display: block;
-            animation: iconFloat 3s ease-in-out infinite;
+        .scroll-slide-left.animate-in {
+            opacity: 1;
+            transform: translateX(0);
         }
 
-        @keyframes iconFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+        .scroll-slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .feature-card:nth-child(1) .feature-icon { animation-delay: 0s; }
-        .feature-card:nth-child(2) .feature-icon { animation-delay: 0.2s; }
-        .feature-card:nth-child(3) .feature-icon { animation-delay: 0.4s; }
-        .feature-card:nth-child(4) .feature-icon { animation-delay: 0.6s; }
-        .feature-card:nth-child(5) .feature-icon { animation-delay: 0.8s; }
-        .feature-card:nth-child(6) .feature-icon { animation-delay: 1s; }
-
-        .feature-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
+        .scroll-slide-right.animate-in {
+            opacity: 1;
+            transform: translateX(0);
         }
 
-        .feature-desc {
-            opacity: 0.8;
-            line-height: 1.7;
-            font-size: 15px;
-            font-weight: 400;
+        .scroll-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 32px;
-            margin-top: 80px;
-            text-align: center;
+        .scroll-scale.animate-in {
+            opacity: 1;
+            transform: scale(1);
         }
 
-        .stat-item {
-            padding: 32px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.4s ease;
-        }
+        .stagger-delay-1 { transition-delay: 0.1s; }
+        .stagger-delay-2 { transition-delay: 0.2s; }
+        .stagger-delay-3 { transition-delay: 0.3s; }
+        .stagger-delay-4 { transition-delay: 0.4s; }
+        .stagger-delay-5 { transition-delay: 0.5s; }
+        .stagger-delay-6 { transition-delay: 0.6s; }
 
-        .stat-item:hover {
-            transform: translateY(-8px);
-            background: rgba(255,255,255,0.06);
-            border-color: rgba(99, 102, 241, 0.5);
-        }
-
-        .stat-number {
-            font-size: 56px;
-            font-weight: 900;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -1px;
-        }
-
-        .stat-label {
-            font-size: 16px;
-            opacity: 0.7;
-            font-weight: 500;
-        }
-
-        .how-it-works {
-            padding: 120px 0;
-            background: rgba(255,255,255,0.02);
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 48px;
-            margin-top: 60px;
-        }
-
-        .step {
-            text-align: center;
-            position: relative;
-            transition: transform 0.4s ease;
-        }
-
-        .step:hover {
-            transform: translateY(-8px);
-        }
-
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            font-weight: 900;
-            margin: 0 auto 28px;
-            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
-            transition: all 0.4s ease;
-        }
-
-        .step:hover .step-number {
-            transform: scale(1.1) rotate(360deg);
-            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.6);
-        }
-
-        .step-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-        }
-
-        .step-desc {
-            opacity: 0.8;
-            line-height: 1.7;
-            font-weight: 400;
-        }
-
-        .cta-section {
-            text-align: center;
-            padding: 120px 0;
-            position: relative;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
-        }
-
-        .cta-section h2 {
-            font-size: clamp(36px, 6vw, 60px);
-            font-weight: 900;
-            margin-bottom: 28px;
-            letter-spacing: -1px;
-        }
-
-        .cta-section p {
-            font-size: 20px;
-            margin-bottom: 48px;
-            opacity: 0.8;
-            font-weight: 400;
-        }
-
-        footer {
-            text-align: center;
-            padding: 60px 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            background: rgba(0,0,0,0.3);
-        }
-
-        .footer-brand {
-            font-size: 15px;
-            opacity: 0.7;
-            margin-bottom: 16px;
-            font-weight: 400;
-        }
-
-        .footer-brand strong {
-            font-weight: 700;
-            color: white;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 28px;
-            flex-wrap: wrap;
-            opacity: 0.6;
-            font-size: 14px;
-            font-weight: 400;
-        }
-
-        /* Override the feature card title color to ensure link styles are visible */
-        .footer-links a {
-            color: #c7d2fe; /* Light blue/white gradient color for better contrast in footer */
-            text-decoration: underline;
-        }
-        
-        /* Ensure the custom styling for links in the footer doesn't affect general links */
-        .footer-links a:hover {
-            color: #93c5fd; /* A lighter hover state for the footer links */
-        }
-        
-        /* The original code for media queries remains */
         @media (max-width: 768px) {
-            .hero {
-                padding: 60px 0 40px;
-            }
-
-            .features, .how-it-works {
-                padding: 80px 0;
-            }
-
-            .cta-section {
-                padding: 80px 0;
-            }
-
-            .mockup {
-                margin: 60px auto;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 16px;
-            }
-
-            nav {
-                padding: 24px 0;
-            }
-
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            /* Responsive ad adjustment */
-            .ad-container {
-                margin: 20px auto;
-                min-height: 50px; /* Smaller visual cue for mobile */
-            }
+            .nav { padding: 15px 20px; top: 10px; width: calc(100% - 20px); }
+            .nav-links { display: none; }
+            .logo { font-size: 20px; }
+            .logo-icon { width: 36px; height: 36px; }
+            .hero { padding: 120px 20px 40px; }
+            .step { flex-direction: column; text-align: center; }
+            .features-grid, .about-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    
-    <div class="grain"></div>
-    <div class="gradient-bg"></div>
-    <div class="floating-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-    </div>
-
-    <div class="container">
-        <nav>
-            <a href="landing.html" class="logo" title="Pixnimble - Free Image Compression Tool">
-                <span class="logo-icon">⚡</span>
-                <span class="logo-text">Pixnimble</span>
-            </a>
-            <button class="nav-btn" onclick="window.location.href='main.html'">Launch App</button>
-        </nav>
-        
-        <div class="ad-container">
-            Ad Slot 1: Top Banner (e.g., 728x90 or Responsive)
-        </div>
-
-        <section class="hero">
-            <div class="badge">
-                No signup required - Start instantly
-            </div>
-            <h1>Compress Images at Lightning Speed and Optimal Quality</h1>
-            <p class="hero-subtitle">Fast, secure, and completely free online image compressor for web and mobile</p>
-            <p class="hero-description">
-                Professional-grade image compression that happens entirely in your browser. 
-                No uploads, no waiting, complete privacy. Optimize your JPEG, PNG, and WebP files now!
-            </p>
-            <div class="hero-cta">
-                <a href="main.html" class="cta-btn">Start Compressing Now</a>
-            </div>
-            <p class="hero-note">Works with JPEG, PNG, and WebP • Up to 90% size reduction</p>
-        </section>
-
-        <div class="mockup">
-            <div class="mockup-inner">
-                <div class="mockup-icon">📊</div>
-                <div style="font-size: 22px; font-weight: 700; margin-bottom: 12px;">Interactive Preview</div>
-                <div style="font-size: 15px; opacity: 0.7; font-weight: 400;">
-                    Drag to compare original vs compressed images in real-time
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <img src="Logo.png" alt="">
                 </div>
+                <div class="logo">PIXnimble</div>
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            <button class="nav-btn" onclick="window.location.href='main.html'">Get Started Free</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <br>
+            <div class="hero-badge">
+                <i class="bi bi-stars"></i> 100% Free · No Sign Up Required
+            </div>
+            <h1 class="hero-title">Compress Images<br><span class="gradient-text">Without Losing Quality</span></h1>
+            <p class="hero-subtitle">Professional image compression with built-in photo editor. Reduce file sizes by up to 80% while maintaining perfect quality. All processing happens in your browser—your images never leave your device.</p>
+            <div class="cta-buttons">
+                <button class="btn-primary" onclick="window.location.href='main.html'"><i class="bi bi-lightning-charge-fill"></i> Start Compressing</button>
             </div>
         </div>
-    </div>
-    
-    <div class="ad-container">
-        Ad Slot 2: Mid-Content Unit (Separates sections)
-    </div>
+    </section>
 
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">The Best Free Online Image Compressor Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">🔒</span>
-                    <h3 class="feature-title">100% Private (No Uploads)</h3>
-                    <p class="feature-desc">All image compression processing happens in your browser. Your images never leave your device, guaranteeing total privacy.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">⚡</span>
-                    <h3 class="feature-title">Lightning Fast Performance</h3>
-                    <p class="feature-desc">Compress multiple images simultaneously with instant, browser-native results. Optimize your website images in seconds.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🎯</span>
-                    <h3 class="feature-title">Quality Control & Resize</h3>
-                    <p class="feature-desc">Fine-tune compression levels and resize images with aspect ratio lock to get the perfect balance of size and quality.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🖼️</span>
-                    <h3 class="feature-title">Multiple Formats (JPEG, PNG, WebP)</h3>
-                    <p class="feature-desc">Convert and compress any image file type to JPEG, PNG, or modern WebP format.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📐</span>
-                    <h3 class="feature-title">Smart Resize & Scaling</h3>
-                    <p class="feature-desc">Resize images with aspect ratio lock for perfect dimensions. Ideal for social media or bulk photo resizing.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📦</span>
-                    <h3 class="feature-title">Batch Download (ZIP)</h3>
-                    <p class="feature-desc">Download all compressed and optimized images as a convenient, single ZIP file for easy use.</p>
+    <section id="features" class="features">
+        <h2 class="section-title scroll-animate">Powerful Features</h2>
+        <p class="section-subtitle scroll-animate">Everything you need for professional image optimization</p>
+        <div class="features-grid">
+            <div class="feature-card scroll-animate stagger-delay-1">
+                <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+                <h3 class="feature-title">100% Private & Secure</h3>
+                <p class="feature-desc">All compression happens in your browser. Your images never touch our servers, ensuring complete privacy.</p>
+            </div>
+            <div class="feature-card scroll-animate stagger-delay-2">
+                <div class="feature-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                <h3 class="feature-title">Lightning Fast</h3>
+                <p class="feature-desc">Compress multiple images simultaneously with instant results. No waiting, no delays.</p>
+            </div>
+            <div class="feature-card scroll-animate stagger-delay-3">
+                <div class="feature-icon"><i class="bi bi-palette"></i></div>
+                <h3 class="feature-title">Built-in Photo Editor</h3>
+                <p class="feature-desc">Crop, rotate, adjust colors, apply filters, and more—all before compression.</p>
+            </div>
+            <div class="feature-card scroll-animate stagger-delay-4">
+                <div class="feature-icon"><i class="bi bi-file-earmark-image"></i></div>
+                <h3 class="feature-title">Multiple Formats</h3>
+                <p class="feature-desc">Support for JPEG, PNG, and WebP. Convert between formats effortlessly.</p>
+            </div>
+            <div class="feature-card scroll-animate stagger-delay-5">
+                <div class="feature-icon"><i class="bi bi-arrows-angle-contract"></i></div>
+                <h3 class="feature-title">Smart Resize</h3>
+                <p class="feature-desc">Resize images to exact dimensions with aspect ratio lock for perfect results.</p>
+            </div>
+            <div class="feature-card scroll-animate stagger-delay-6">
+                <div class="feature-icon"><i class="bi bi-download"></i></div>
+                <h3 class="feature-title">Batch Download</h3>
+                <p class="feature-desc">Download all compressed images as a single ZIP file with one click.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <h2 class="section-title scroll-animate">Trusted by Thousands</h2>
+        <div class="stats-grid">
+            <div class="scroll-scale stagger-delay-1"><div class="stat-number">1M+</div><div class="stat-label">Images Compressed</div></div>
+            <div class="scroll-scale stagger-delay-2"><div class="stat-number">80%</div><div class="stat-label">Average Size Reduction</div></div>
+            <div class="scroll-scale stagger-delay-3"><div class="stat-number">100%</div><div class="stat-label">Free Forever</div></div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <h2 class="section-title scroll-animate">How It Works</h2>
+        <p class="section-subtitle scroll-animate">Get started in three simple steps</p>
+        <div class="steps-container">
+            <div class="step scroll-slide-right stagger-delay-1">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Upload Your Images</h3>
+                    <p>Drag and drop your images or click to browse. Upload multiple files at once for batch processing.</p>
                 </div>
             </div>
-
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number">90%</div>
-                    <div class="stat-label">Average Compression</div>
+            <div class="step scroll-slide-left stagger-delay-2">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Customize Settings</h3>
+                    <p>Adjust quality, choose output format, resize dimensions, or edit images with our built-in photo editor.</p>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">0s</div>
-                    <div class="stat-label">Upload Time (Browser-Based)</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Free Forever</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">∞</div>
-                    <div class="stat-label">Image Limit</div>
+            </div>
+            <div class="step scroll-slide-right stagger-delay-3">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Download & Share</h3>
+                    <p>Download individual images or get all compressed files in a ZIP. Share instantly with perfect quality.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="how-it-works">
-        <div class="container">
-            <h2 class="section-title">How to Compress Images with Pixnimble in 4 Simple Steps</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Select Your Images</h3>
-                    <p class="step-desc">Drag and drop or select multiple images from your device. The files stay locally.</p>
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2 class="section-title scroll-animate">About Pixnimble</h2>
+            <p class="section-subtitle scroll-animate">Crafted with passion for creators and professionals</p>
+            <div class="about-grid">
+                <div class="about-card scroll-animate stagger-delay-1">
+                    <div class="about-icon"><i class="bi bi-lightbulb"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>Pixnimble was created to provide a fast, secure, and completely free solution for image compression. We believe powerful tools should be accessible to everyone, without compromises on privacy or quality.</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">Adjust Compression Settings</h3>
-                    <p class="step-desc">Choose target quality, output format (JPEG, PNG, WebP), and optional resize dimensions</p>
+                <div class="about-card scroll-animate stagger-delay-2">
+                    <div class="about-icon"><i class="bi bi-code-square"></i></div>
+                    <h3>The Technology</h3>
+                    <p>Built with cutting-edge web technologies, all processing happens directly in your browser. This means your images stay on your device, ensuring complete privacy and lightning-fast performance.</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Instant Compression & Preview</h3>
-                    <p class="step-desc">See real-time before/after comparison with size savings as the image is compressed.</p>
+                <div class="about-card scroll-animate stagger-delay-3">
+                    <div class="about-icon"><i class="bi bi-heart"></i></div>
+                    <h3>Made with Care</h3>
+                    <p>Developed by Matheesh at M Productions, Sri Lanka. We're committed to creating tools that make your workflow easier and more efficient, without any hidden costs or data collection.</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3 class="step-title">Download Optimized Files</h3>
-                    <p class="step-desc">Download your individual compressed images or all at once as a ZIP file</p>
-                </div>
+            </div>
+            <div class="creator-section scroll-scale">
+                <div class="creator-badge"><i class="bi bi-building"></i> <span>Proudly Made in Sri Lanka</span></div>
+                <h3 class="creator-title">M Productions</h3>
+                <p class="creator-description">A technology company dedicated to building innovative web applications that solve real problems. We focus on creating tools that respect user privacy while delivering exceptional performance.</p>
             </div>
         </div>
     </section>
-
-    <div class="ad-container">
-        Ad Slot 3: Bottom Banner (Above Final CTA)
-    </div>
 
     <section class="cta-section">
-        <div class="container">
-            <h2>Get Started Now</h2>
-            <a href="main.html" class="cta-btn">Compress Now!</a>
+        <div class="cta-content">
+            <h2 class="cta-title scroll-animate">Ready to Optimize Your Images?</h2>
+            <p class="cta-text scroll-animate">Join thousands of users who trust Pixnimble for fast, secure image compression.</p>
+            <button class="btn-primary scroll-scale" onclick="window.location.href='main.html'" style="font-size: 20px; padding: 22px 50px;"><i class="bi bi-arrow-right-circle"></i> Start Compressing Now</button>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <div class="footer-brand">
-                A product from <a href="https://www.youtube.com/channel/UCuj-zW7iroia6oH_fRSbo5A/" style="text-decoration: none;"><strong>M Productions</strong></a> by Matheesh
-            </div>
-        </div>
+        <p>&copy; 2025 Pixnimble. Free Online Image Compressor. All rights reserved.</p>
     </footer>
 
+    <script>
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with scroll animation classes
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.scroll-animate, .scroll-fade, .scroll-slide-left, .scroll-slide-right, .scroll-scale'
+            );
+            
+            animatedElements.forEach(el => observer.observe(el));
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
-
-
-

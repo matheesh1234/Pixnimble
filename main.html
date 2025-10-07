@@ -1145,7 +1145,7 @@
 <body>
     <header class="header">
         <div class="header-content">
-            <h1>PixNimble</h1>
+            <h1>PIXnimble</h1>
             <p class="subtitle">Professional Image Compression Made Simple</p>
         </div>
         <button class="theme-toggle" id="themeToggle">
@@ -1597,8 +1597,8 @@
                 </div>
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <div class="stat-label">Original Size</div>
-                        <div class="stat-value" id="original-dimensions-${id}">${imageObj.original.width}x${imageObj.original.height}</div>
+                        <div class="stat-label">Original</div>
+                        <div class="stat-value">${formatBytes(imageObj.original.size)}</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-label">Compressed</div>
@@ -1609,8 +1609,8 @@
                         <div class="stat-value success" id="savings-${id}">-</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-label">Size</div>
-                        <div class="stat-value" id="dimensions-${id}">${imageObj.original.width}x${imageObj.original.height}</div>
+                        <div class="stat-label">Original Size</div>
+                        <div class="stat-value" id="original-dimensions-${id}">${imageObj.original.width}x${imageObj.original.height}</div>
                     </div>
                 </div>
                 <button class="btn btn-primary" data-download="${id}">
